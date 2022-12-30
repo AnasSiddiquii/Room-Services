@@ -1,0 +1,51 @@
+{% include 'user_navigation.html' %}
+<marquee behavior="alternate"; style="font-family: 'Monotype Corsiva'; font-size:35px; color:darkcyan; background-color:white; font-weight:bold; margin-top:1%">
+    Contact Us
+</marquee>
+
+<form action="" method="post">
+    {% csrf_token %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <label>Full Name:</label>
+            <input type="text" class="form-control" name="fname" value="{{request.user.first_name}} {{request.user.last_name}}" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label>Email:</label>
+            <input type="email" class="form-control" name="email" value="{{request.user.username}}" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label>Mobile:</label>
+            <input type="text" class="form-control" name="mobile" value="{{data.mobile}}" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label>Feedback:</label>
+            <input type="text" class="form-control" name="purpose" placeholder="Write your valuable feedback here" required>
+        </div>
+    </div>
+    <center><br>
+        <input type="submit" class="btn btn-primary btn-lg">
+    </center>
+</div>
+</form>
+
+
+{% if error == "no" %}
+<script>
+    alert("Feedback Detail Submitted Successfully")
+    window.location = ('{% url 'user_home' %}')
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert("Something Wrong, Try Again...")
+</script>
+{% endif %}

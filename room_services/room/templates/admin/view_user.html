@@ -1,0 +1,26 @@
+{% include 'admin_navigation.html' %}
+
+<table class="table">
+    <tr>
+        <th>S. No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Gender</th>
+        <th>DOB</th>
+        <th>Profile</th>
+        <th>Action</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+        <td>{{i.user.username}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.dob}}</td>
+        <td><img src="{{i.image.url}}" width="100" height="60" style="border-radius:30px;"></td>
+        <td><a href="{% url 'delete_user' i.user.id %}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>

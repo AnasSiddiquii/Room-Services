@@ -1,0 +1,37 @@
+{% load static %}
+<a name="top"></a>
+<div style="background-color: black;">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 mt-3">
+            <h3 class="text-white ">Contact Information</h3>
+            <p style="color:cyan; font-size: 18px"><i class="fas fa-user text-danger"></i>   Anas Siddiqui</p>
+            <p style="color:cyan; font-size: 18px"><i class="fa fa-map-marker text-danger"></i>   Lucknow</p>
+            <p style="color:cyan; font-size: 18px"><i class="fa fa-envelope text-danger"></i>   anas@xyz.com</p>
+            <!-- <p style="color:cyan; font-size: 18px"><i class="fa fa-mobile text-danger"></i>   123456789</p> -->
+            <!-- <p style="color:cyan; font-size: 18px"><i class="fa fa-globe text-danger"></i>   www.room-services.com</p> -->
+        </div>
+
+        <div class="col-md-6 mt-3">
+        <h3 class="text-white">About Room Services</h3>
+        <p style="color:cyan; font-size:18px">Lucknow Room rental services is running since 5years. We are providing room's on perday
+        bases with in normal price. We are trying to provide best services to our customer's using our team and
+        we take care of our customer's. We are providing room in three category like single person, couples and
+        for family at different prices. And we provide fully AC room's, well cleaned room and WiFi service with fast speed
+        24*7 hours.</p>
+    </div>
+
+    <div class="col-md-3 mt-3">
+        <h3 class="text-white">Current News</h3>
+        <marquee scrollamount="3" behavior="" direction="up">
+        <p style="color:cyan; font-size:18px">Without mask no entry for enquiry. Due to COVID19 be safe.</p>
+        <form method="post" class="form-inline">
+            {% csrf_token %}
+        </form>
+        </marquee>
+    </div>
+    </div>
+</div>
+</div>
+
+<a name="down"></a>

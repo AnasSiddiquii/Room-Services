@@ -1,0 +1,35 @@
+{% include 'admin_navigation.html' %}
+
+<table class="table text-center">
+    <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Booking Data</th>
+        <th>Total Days</th>
+        <th>Price</th>
+        <th>Room No.</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact1}}<br>{{i.contact2}}</td>
+        <td>{{i.booking_date}}</td>
+        <td>{{i.total_days}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.room_no}}</td>
+        <td><a class="btn bg-primary text-white" href="{% url 'change_status' i.id %}">{{i.status}}</a></td>
+        <td><a class="btn bg-danger text-white" href="{% url 'delete_booking' i.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if not data %}
+    <h6 class="text-center">&nbsp;</h6>
+    <h1 class="text-center">No Data Found</h3>
+{% endif %}
